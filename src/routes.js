@@ -14,6 +14,8 @@ import Profile from './pages/Profile';
 import Repository from './pages/Repository';
 import RepoProfile from './pages/RepoProfile';
 
+import Blog from './pages/Blog';
+
 const Routes = createAppContainer(
   createBottomTabNavigator(
     {
@@ -22,6 +24,7 @@ const Routes = createAppContainer(
           {
             Dashboard,
             Profile,
+            Blog,
           },
           {
             defaultNavigationOptions: {

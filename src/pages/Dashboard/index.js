@@ -7,7 +7,6 @@ import Background from '../../components/Background';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container,
-  Title,
   Form,
   TitleInput,
   SubmitButton,
@@ -48,7 +47,6 @@ export default function Dashboard({navigation}) {
     try {
       setLoading(true);
       const response = await api.get(`/users/${newUser}`);
-
   
       const data = {
         id: response.data.id,
@@ -56,15 +54,24 @@ export default function Dashboard({navigation}) {
         bio: response.data.bio,
         avatar_url: response.data.avatar_url,
         login: response.data.login,
-        location: response.data.location
+        location: response.data.location,
+        followers: response.data.followers,
+        following: response.data.following,
+        blog: response.data.blog,
       }
-  
-  
-      setUserList(users => [...users, data]);
 
-      setNewUser('');
+      const userExists = userList.find(user => user.id === data.id);
+
+      if(userExists) {
+        Alert.alert('Erro!', 'Você já adicionou esse usuário!');
+        setNewUser('');
+        setLoading(false);
+        return;
+      }
       
-      setLoading(false);
+       setUserList(users => [...users, data]);
+       setNewUser('');
+       setLoading(false);
     } catch(err) {
       Alert.alert('Ops!', 'Nenhum usuário foi encontrado');
       setLoading(false);
@@ -83,6 +90,7 @@ export default function Dashboard({navigation}) {
         <Form>
           <TitleInput 
             placeholder="Usuário do github"
+            autoCapitalize="none"
             value={newUser}
             onChangeText={setNewUser}
           />
