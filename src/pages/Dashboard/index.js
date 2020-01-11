@@ -113,7 +113,6 @@ export default function Dashboard({navigation}) {
               <Name>{item.name}</Name>
               <Location>{item.location ? item.location : 'Não informado'}</Location>
 
-
             </User>
           )}
         />

@@ -6,3 +6,6 @@ export default styled(LinearGradient).attrs({
 })`
   flex: 1;
 `;
+
+// #cce6ff
+// #ffb3ff'

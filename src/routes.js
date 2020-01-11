@@ -48,7 +48,8 @@ const Routes = createAppContainer(
         screen: createStackNavigator(
           {
             Repository,
-            RepoProfile
+            RepoProfile,
+            Blog
           },
           {
             defaultNavigationOptions: {

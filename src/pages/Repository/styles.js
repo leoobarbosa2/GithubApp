@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
-  flex: 1;
+  flex: 1; 
   padding: 20px;
 `;
 
@@ -30,7 +30,7 @@ export const SubmitButton = styled.TouchableOpacity`
 export const RepoList = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })`
-  margin-top: 10px;
+  margin: 10px 0 30px;
 `;
 
 export const Repo = styled.TouchableOpacity`
